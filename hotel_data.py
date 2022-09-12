@@ -7,13 +7,14 @@ header = {
 }
 
 class HotelData():
-
+     """This class is responsible for collecting information from the booking site"""
     def __init__(self):
         self.price_list = []
         self.addres_list = []
         self.link_list = []
 
     def get_price_list(self, current_url):
+        """Function converts data to price list"""
         response = requests.get(current_url, headers=header)
         soup = BeautifulSoup(response.content, "html.parser")
         print(response)
@@ -25,7 +26,8 @@ class HotelData():
 
         return self.price_list
 
-    def get_adress_link(self, current_url):
+    def get_address_link(self, current_url):
+        """Function converts data to address list and link list"""
         response = requests.get(current_url, headers=header)
         soup = BeautifulSoup(response.content, "html.parser")
         link_data = soup.find_all('div', class_="d20f4628d0", limit=5)
