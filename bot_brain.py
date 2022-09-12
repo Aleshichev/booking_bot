@@ -11,7 +11,7 @@ USER_AGENT = os.environ.get('owm_user_agent')
 
 
 class BotBrain():
-
+    """This class is responsible for bot behavior ."""
     def __init__(self):
         self.city = input("Your City:")
         self.date_from = input("Chek-in date (this month):")
@@ -20,7 +20,7 @@ class BotBrain():
         self.s = Service('C:\Web development\chromedriver_win32\chromedriver.exe')
 
     def enter_data(self):
-
+        """This function enters data on the booking page"""
         driver = webdriver.Chrome(service=self.s)
         driver.get(booking)
         time.sleep(1)
@@ -48,7 +48,7 @@ class BotBrain():
 
 
     def fill_form(self, link_list, addres_list, price_list):
-
+        """This function fills in the Google form data"""
         driver = webdriver.Chrome(service=self.s)
 
         for n in range(0, len(link_list)):
